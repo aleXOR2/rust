@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM mcr.microsoft.com/devcontainers/rust:2.0.2-bullseye
 
 WORKDIR /home/
 
