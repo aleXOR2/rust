@@ -16,12 +16,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
    && apt-get autoremove -y && apt-get clean -y
 
 ## Install rustup and common components
-curl https://sh.rustup.rs -sSf | sh -s -- -y 
-rustup install nightly
-rustup component add rustfmt
-rustup component add rustfmt --toolchain nightly
-rustup component add clippy 
-rustup component add clippy --toolchain nightly
+# curl https://sh.rustup.rs -sSf | sh -s -- -y 
+# rustup install nightly
+# rustup component add rustfmt
+# rustup component add rustfmt --toolchain nightly
+# rustup component add clippy 
+# rustup component add clippy --toolchain nightly
 
 cargo install cargo-expand
 cargo install cargo-edit
