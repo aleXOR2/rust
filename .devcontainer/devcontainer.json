@@ -3,17 +3,28 @@
 	"extensions": [
 		"cschleiden.vscode-github-actions",
 		"ms-vsliveshare.vsliveshare",
-		"matklad.rust-analyzer",
-		"serayuzgur.crates",
-		"vadimcn.vscode-lldb"
+		"serayuzgur.crates"
 	],
+	"features": {
+		"ghcr.io/devcontainers/features/rust:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/mdbook:0": {}
+	},
 	"dockerFile": "Dockerfile",
 	"settings": {
+		"rust-analyzer.cargo.autoreload": true,
 		"editor.formatOnSave": true,
 		"terminal.integrated.shell.linux": "/usr/bin/zsh",
 		"files.exclude": {
 			"**/CODE_OF_CONDUCT.md": true,
 			"**/LICENSE": true
 		}
-	}
+	},
+	"postCreateCommand": "rustc --version",
+	"mounts": [
+		{
+	 		"source": "devcontainer-cargo-cache-${devcontainerId}",
+	 		"target": "/usr/local/cargo",
+	 		"type": "volume"
+	 	}
+	]
 }
