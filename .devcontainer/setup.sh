@@ -1,15 +1,19 @@
 ## update and install some things we should probably have
-apt-get update
-apt-get install -y \
-  curl \
-  git \
-  gnupg2 \
-  jq \
-  sudo \
-  zsh \
-  vim \
-  build-essential \
-  openssl
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+   && apt-get -y \
+    curl \
+    git \
+    gnupg2 \
+    jq \
+    sudo \
+    zsh \
+    vim \
+    build-essential \
+    libssl-dev  \
+    rust-lldb \
+    lshw \
+    python3-venv python3-dev \
+   && apt-get autoremove -y && apt-get clean -y
 
 ## Install rustup and common components
 curl https://sh.rustup.rs -sSf | sh -s -- -y 
